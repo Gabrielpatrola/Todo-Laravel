@@ -29,6 +29,9 @@
                 <div class="todo-description">{{ $todo->description }}</div>
                 <hr>
                 <p>Status: {{ $todo->status }}</p>
+                <p>Requerente: {{ $todo->boss->name}}</p>
+                <p>Responsável: {{ $todo->worker->name}}</p>
+                <p title="{{ $todo->deadline}}">DeadLine: {{ $todo->deadline }}</p>
                 <p title="{{ $todo->created_at }}">Created: {{ $todo->created_at->diffForHumans() }}</p>
               </div>
             </div>

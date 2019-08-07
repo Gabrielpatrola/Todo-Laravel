@@ -45,6 +45,9 @@
           </div>
 
           <div class="form-group">
+            <p>Requerente: {{ $todo->boss->name}}</p>
+            <p>Responsável: {{ $todo->worker->name}}</p>
+            <p title="{{ $todo->deadline}}">DeadLine: {{ $todo->deadline }}</p>
             <p>Created: {{ $todo->created_at }}</p>
             <p>Last modified: {{ $todo->updated_at }}</p>
           </div>

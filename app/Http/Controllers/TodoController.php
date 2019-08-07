@@ -117,7 +117,7 @@ class TodoController extends Controller
         $todo = new Todo();
         $result = $todo->find($id);
         //dd($result);
-        return view('edit', compact('result'));
+        return view('edit', ['todo' => $result]);
     }
     public function showWaiting()
     {

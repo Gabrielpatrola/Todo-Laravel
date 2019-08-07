@@ -116,7 +116,39 @@ class TodoController extends Controller
     {
         $todo = new Todo();
         $result = $todo->find($id);
-        return view('edit', ['todo' => $result]);
+        //dd($result);
+        return view('edit', compact('result'));
+    }
+    public function showWaiting()
+    {
+        $todo = new Todo();
+        $result = $todo
+            ->where('status', '=', 'WAITING')
+            ->paginate(6);
+   
+        // return $result;
+        //dd($todo->user()->get());
+        return view('waiting', compact('result'));
+    }
+    public function showActive()
+    {
+        $todo = new Todo();
+        $result = $todo
+            ->where('status', '=', 'ACTIVE')
+            ->paginate(6);
+
+        // return $result;
+        return view('active', compact('result'));
+    }
+    public function showDone()
+    {
+        $todo = new Todo();
+        $result = $todo
+            ->where('status', '=', 'DONE')
+            ->paginate(6);
+   
+        // return $result;
+        return view('done', compact('result'));
     }
 
     /**

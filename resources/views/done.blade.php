@@ -11,10 +11,10 @@
 
         <p class="my-3 text-center">DONE</p>
         
-        @if (count($todos) > 0)
+        @if (count($result) > 0)
 
           <ul class="list-group">
-          @foreach ($todos as $todo)
+          @foreach ($result as $todo)
 
             <li class="list-group-item">
               <div>
@@ -48,15 +48,7 @@
 
       <!-- nav -->
       <div class="my-3">
-        <!-- prev button -->
-        @if ($page > 1)
-          <a href="/todo/done/{{ $page - 1 }}" class="btn btn-primary">Prev</a>
-        @endif
-
-        <!-- next button -->
-        @if (count($todos) === 10)
-          <a href="/todo/done/{{ $page + 1 }}" class="btn btn-primary float-right">Next</a>
-        @endif
+      {{ $result->links() }}
       </div>
       <!-- nav ends here -->
 

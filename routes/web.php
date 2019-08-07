@@ -13,51 +13,13 @@ use App\Todo;
 |
 */
 
-Route::get('/todo/active/{page?}', function ($page = 1) {
-    $todo = new Todo();
-    $result = $todo
-        ->where('status', '=', 'ACTIVE')
-        ->forPage($page, 10)
-        ->get();
-    // return $result;
-    return view('active', ['todos' => $result, 'page' => $page]);
-}); 
-/**
- * Get the DONE todo tasks for a given page.
- */
-Route::get('/todo/done/{page?}', function ($page = 1) {
-    $todo = new Todo();
-    $result = $todo
-        ->where('status', '=', 'DONE')
-        ->forPage($page, 10)
-        ->get();
-    // return $result;
-    return view('done', ['todos' => $result, 'page' => $page]);
-}); 
-/**
- * Get the waiting todo tasks for a given page.
- */
-Route::get('/todo/waiting/{page?}', function ($page = 1) {
-    $todo = new Todo();
-    $result = $todo
-        ->where('status', '=', 'WAITING')
-        ->forPage($page, 10)
-        ->get();
-    // return $result;
-    //dd($todo->user()->get());
-    return view('waiting', ['todos' => $result, 'page' => $page]);
-}); 
-/**
- * Get a specific todo task by id.
- */
-//Route::get('/todo/{id}', 'TodoController@getTodoById');
+Route::get('/todo/done', 'TodoController@showDone');
+Route::get('/todo/active', 'TodoController@showActive');
+Route::get('/todo/waiting', 'TodoController@showWaiting');
 
-//Route::put('/todo/{id}', 'TodoController@updateTodoById');
-
-//Route::delete('/todo/{id}', 'TodoController@deleteTodoById');
- 
 Auth::routes();
 
 Route::get('/', 'TodoController@index')->name('home');
+Route::get('/todo/{id}', 'TodoController@show')->name('todo.edit');
 
 Route::resource('todo', 'TodoController');

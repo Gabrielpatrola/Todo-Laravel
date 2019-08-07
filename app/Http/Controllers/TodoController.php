@@ -84,7 +84,9 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        //
+        $todo = new Todo();
+        $result = $todo->find($id);
+        return view('edit', ['todo' => $result]);
     }
 
     /**
@@ -107,27 +109,6 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-    public function getTodoById($id)
-    {
-        $todo = new Todo();
-        $result = $todo->find($id);
-        return view('edit', ['todo' => $result]);
-    }
-    public function updateTodoById($id, Request $request)
-    {
         $user = Auth::user();
         $todo = Todo::find($id);
         if ($user->id === $todo->user_id_create) {
@@ -149,7 +130,14 @@ class TodoController extends Controller
 
         return redirect('/todo/' . $id);
     }
-    public function deleteTodoById($id)
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
         $todo = Todo::find($id);
         $todo->delete();

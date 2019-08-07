@@ -50,11 +50,11 @@ Route::get('/todo/waiting/{page?}', function ($page = 1) {
 /**
  * Get a specific todo task by id.
  */
-Route::get('/todo/{id}', 'TodoController@getTodoById');
+//Route::get('/todo/{id}', 'TodoController@getTodoById');
 
-Route::put('/todo/{id}', 'TodoController@updateTodoById');
+//Route::put('/todo/{id}', 'TodoController@updateTodoById');
 
-Route::delete('/todo/{id}', 'TodoController@deleteTodoById');
+//Route::delete('/todo/{id}', 'TodoController@deleteTodoById');
  
 Auth::routes();
 

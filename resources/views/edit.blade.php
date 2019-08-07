@@ -13,7 +13,7 @@
 
         <h3 class="text-center">Edit Todo #{{ $todo->id }}</h3>
 
-        <form action="{{route('todo.update')}}" method="POST">
+        <form action="{{route('todo.update', $todo->id)}}" method="POST">
           {{ csrf_field() }}
 
           {{ method_field('PUT') }}

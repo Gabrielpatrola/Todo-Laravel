@@ -21,7 +21,7 @@
       <div class="modal-body">
 
         <!-- form -->
-        <form action="{{route('todo.create')}}" method="POST">
+        <form action="{{route('todo.store')}}" method="POST">
           {{ csrf_field() }}
 
           <!-- Todo title -->

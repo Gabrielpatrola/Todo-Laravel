@@ -5,8 +5,10 @@ namespace App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Database\Eloquent\SoftDeletes; //add this line
 class Todo extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'title',
         'description',
@@ -30,10 +32,12 @@ class Todo extends Model
             $model->user_id_lastupdate = $user->id;
         });
     }
-    public function worker(){
+    public function worker()
+    {
         return $this->belongsTo(User::class, 'user_id_worker', 'id');
     }
-    public function boss(){
+    public function boss()
+    {
         return $this->belongsTo(User::class, 'user_id_create', 'id');
     }
 }

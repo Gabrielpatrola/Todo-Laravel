@@ -43,7 +43,7 @@
         @endif
 
       </div>
-
+      {{ $result->links() }}
     </div>
   </div>
 </div>

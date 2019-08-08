@@ -17,12 +17,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todo = new Todo();
-        $result = $todo
-            ->where('status', '=', 'WAITING')
-            ->orderBy('created_at', 'DESC')
-            ->forPage(1, 10)
-            ->get();
+        //$todo = new Todo();
+        $result = \App\Todo::where('status', '=', 'WAITING')->paginate(6);
         // return $result;
         return view('home', compact('result'));
     }
@@ -122,32 +118,24 @@ class TodoController extends Controller
     }
     public function showWaiting()
     {
-        $todo = new Todo();
-        $result = $todo
-            ->where('status', '=', 'WAITING')
-            ->paginate(6);
-
+        //$todo = new Todo();
+        $result = \App\Todo::where('status', '=', 'WAITING')->paginate(6);
         // return $result;
         //dd($todo->user()->get());
         return view('waiting', compact('result'));
     }
     public function showActive()
     {
-        $todo = new Todo();
-        $result = $todo
-            ->where('status', '=', 'ACTIVE')
-            ->paginate(6);
+        //$todo = new Todo();
+        $result = \App\Todo::where('status', '=', 'ACTIVE')->paginate(6);
 
         // return $result;
         return view('active', compact('result'));
     }
     public function showDone()
     {
-        $todo = new Todo();
-        $result = $todo
-            ->where('status', '=', 'DONE')
-            ->paginate(6);
-
+        //$todo = new Todo();
+        $result = \App\Todo::where('status', '=', 'DONE')->paginate(6);
         // return $result;
         return view('done', compact('result'));
     }

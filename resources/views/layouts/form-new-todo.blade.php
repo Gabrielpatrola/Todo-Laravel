@@ -22,7 +22,7 @@
 
         <!-- form -->
         <form action="{{route('todo.store')}}" method="POST">
-          {{ csrf_field() }}
+          @csrf
 
           <!-- Todo title -->
           <div class="form-group">

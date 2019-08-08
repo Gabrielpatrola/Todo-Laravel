@@ -39,7 +39,7 @@
         </ul>
 
         @else
-        <p class="lead">No ACTIVE todo tasks</p>
+        <p class="lead">No WAITING todo tasks</p>
         @endif
 
       </div>

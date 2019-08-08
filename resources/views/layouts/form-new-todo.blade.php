@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 offset-sm-3 col-md-6 offset-md-3 my-3">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Nova atividade</button>
     </div>
   </div>
 </div>

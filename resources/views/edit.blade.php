@@ -8,7 +8,7 @@
     <div class="col-xs-12 col-sm-6 offset-sm-3 col-md-6 offset-md-3">
 
       <div class="my-3">
-
+      
         @if (isset($todo))
 
         <h3 class="text-center">Edit Todo #{{ $todo->id }}</h3>

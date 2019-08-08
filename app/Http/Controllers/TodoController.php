@@ -115,9 +115,10 @@ class TodoController extends Controller
     public function show($id)
     {
         $todo = new Todo();
-        $result = $todo->find($id);
+        //$result = $todo->find($id);
+        $todo = $todo->find($id);
         //dd($result);
-        return view('edit', ['todo' => $result]);
+        return view('edit', compact('todo'));
     }
     public function showWaiting()
     {
@@ -125,7 +126,7 @@ class TodoController extends Controller
         $result = $todo
             ->where('status', '=', 'WAITING')
             ->paginate(6);
-   
+
         // return $result;
         //dd($todo->user()->get());
         return view('waiting', compact('result'));
@@ -146,7 +147,7 @@ class TodoController extends Controller
         $result = $todo
             ->where('status', '=', 'DONE')
             ->paginate(6);
-   
+
         // return $result;
         return view('done', compact('result'));
     }
@@ -190,7 +191,7 @@ class TodoController extends Controller
         }
         $todo->update();
 
-        return redirect('/todo/' . $id);
+        return redirect()->route('todo.index');
     }
 
     /**
